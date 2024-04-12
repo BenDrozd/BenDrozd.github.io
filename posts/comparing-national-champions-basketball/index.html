@@ -241,43 +241,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>champs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Connecticut 2024"</span>, <span class="st">"Connecticut 2023"</span>, <span class="st">"Kansas 2022"</span>, <span class="st">"Baylor 2021"</span>, <span class="st">"Virginia 2019"</span>, <span class="st">"Villanova 2018"</span>, <span class="st">"North Carolina 2017"</span>, <span class="st">"Villanova 2016"</span>, <span class="st">"Duke 2015"</span>, <span class="st">"Connecticut 2014"</span>, <span class="st">"Louisville 2013"</span>, <span class="st">"Kentucky 2012"</span>, <span class="st">"Connecticut 2011"</span>, <span class="st">"Duke 2010"</span>, <span class="st">"North Carolina 2009"</span>, <span class="st">"Kansas 2008"</span>, <span class="st">"Florida 2007"</span>, <span class="st">"Florida 2006"</span>, <span class="st">"North Carolina 2005"</span>, <span class="st">"Connecticut 2004"</span>)</span>
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>champions <span class="ot">&lt;-</span> kenpom <span class="sc">|&gt;</span> <span class="fu">filter</span>(TeamSeason <span class="sc">%in%</span> champs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span>kenpom,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x=</span>AdjO, <span class="at">y=</span>AdjD),</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">color=</span><span class="st">"lightgrey"</span>) <span class="sc">+</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span>champions,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x=</span>AdjO, <span class="at">y=</span>AdjD),</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">color=</span><span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">103.7156</span>) <span class="sc">+</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">103.7151</span>) <span class="sc">+</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">"Adjusted Offensive Efficiency"</span>, </span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"Adjusted Deffensive Efficiency"</span>, </span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"Consistency Among Champions"</span>, </span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"The last 20 title winners find themselves very close together in efficiency."</span>, </span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: KenPom | By Ben Drozd"</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>), </span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), </span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>champions <span class="ot">&lt;-</span> kenpom <span class="sc">|&gt;</span> <span class="fu">filter</span>(TeamSeason <span class="sc">%in%</span> champs)</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span>kenpom,</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x=</span>AdjO, <span class="at">y=</span>AdjD),</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">color=</span><span class="st">"lightgrey"</span>) <span class="sc">+</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span>champions,</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x=</span>AdjO, <span class="at">y=</span>AdjD),</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">color=</span><span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">103.7156</span>) <span class="sc">+</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">103.7151</span>) <span class="sc">+</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">"Adjusted Offensive Efficiency"</span>, </span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"Adjusted Deffensive Efficiency"</span>, </span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"Consistency Among Champions"</span>, </span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"The last 20 title winners find themselves close together in efficiency compared to every other team."</span>, </span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: KenPom | By Ben Drozd"</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>), </span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), </span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>    ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -285,65 +281,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>champions <span class="sc">|&gt;</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(TeamSeason, AdjO, AdjORank, AdjD, AdjDRank) <span class="sc">|&gt;</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(AdjO)) <span class="sc">|&gt;</span> </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">TeamSeason =</span> <span class="st">"Team"</span>,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">AdjO =</span> <span class="st">"Offensive Efficiency"</span>,</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">AdjORank =</span> <span class="st">"Rank"</span>,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">AdjD =</span> <span class="st">"Defensive Efficiency"</span>,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">AdjDRank =</span> <span class="st">"Rank"</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"National Champion's Efficiency"</span>,</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"18 of past the 20 tournament winners had a top 20 offense and defense, with 2014 UConn and 2021 Baylor being outliers."</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> <span class="fu">tab_style</span>(</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">weight =</span> <span class="st">"bold"</span>, <span class="at">align =</span> <span class="st">"left"</span>),</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="st">"title"</span>)</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> <span class="fu">tab_style</span>(</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">align =</span> <span class="st">"left"</span>),</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="st">"subtitle"</span>)</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">source_note =</span> <span class="fu">md</span>(<span class="st">"**By:** Ben Drozd  |  **Source:** KenPom"</span>)</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>     <span class="at">locations =</span> <span class="fu">cells_column_labels</span>(<span class="at">columns =</span> <span class="fu">everything</span>()),</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>     <span class="at">style =</span> <span class="fu">list</span>(</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>       <span class="fu">cell_borders</span>(<span class="at">sides =</span> <span class="st">"bottom"</span>, <span class="at">weight =</span> <span class="fu">px</span>(<span class="dv">3</span>)),</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>       <span class="fu">cell_text</span>(<span class="at">weight =</span> <span class="st">"bold"</span>, <span class="at">size=</span><span class="dv">12</span>)</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>     )</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>   ) <span class="sc">|&gt;</span></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_body</span>(</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>      <span class="at">rows =</span> TeamSeason <span class="sc">==</span> <span class="st">"Connecticut 2024"</span>)</span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>champions <span class="sc">|&gt;</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(TeamSeason, AdjO, AdjORank, AdjD, AdjDRank) <span class="sc">|&gt;</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">TeamSeason =</span> <span class="st">"Team"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">AdjO =</span> <span class="st">"Offensive Efficiency"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">AdjORank =</span> <span class="st">"Rank"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">AdjD =</span> <span class="st">"Defensive Efficiency"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">AdjDRank =</span> <span class="st">"Rank"</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"National Champion's Efficiency"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"18 of past the 20 tournament winners had a top 20 offense and defense, with 2014 UConn and 2021 Baylor being outliers."</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> <span class="fu">tab_style</span>(</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">weight =</span> <span class="st">"bold"</span>, <span class="at">align =</span> <span class="st">"left"</span>),</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="st">"title"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> <span class="fu">tab_style</span>(</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">align =</span> <span class="st">"left"</span>),</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="st">"subtitle"</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">source_note =</span> <span class="fu">md</span>(<span class="st">"**By:** Ben Drozd  |  **Source:** KenPom"</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>     <span class="at">locations =</span> <span class="fu">cells_column_labels</span>(<span class="at">columns =</span> <span class="fu">everything</span>()),</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>     <span class="at">style =</span> <span class="fu">list</span>(</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>       <span class="fu">cell_borders</span>(<span class="at">sides =</span> <span class="st">"bottom"</span>, <span class="at">weight =</span> <span class="fu">px</span>(<span class="dv">3</span>)),</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>       <span class="fu">cell_text</span>(<span class="at">weight =</span> <span class="st">"bold"</span>, <span class="at">size=</span><span class="dv">12</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>     )</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>   ) <span class="sc">|&gt;</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_body</span>(</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>      <span class="at">rows =</span> TeamSeason <span class="sc">==</span> <span class="st">"Connecticut 2014"</span>)</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_body</span>(</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>      <span class="at">rows =</span> TeamSeason <span class="sc">==</span> <span class="st">"Baylor 2021"</span>)</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
-<div id="lrlywskaps" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lrlywskaps table {
+<div id="bgdmwxjbra" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bgdmwxjbra table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lrlywskaps thead, #lrlywskaps tbody, #lrlywskaps tfoot, #lrlywskaps tr, #lrlywskaps td, #lrlywskaps th {
+#bgdmwxjbra thead, #bgdmwxjbra tbody, #bgdmwxjbra tfoot, #bgdmwxjbra tr, #bgdmwxjbra td, #bgdmwxjbra th {
   border-style: none;
 }
 
-#lrlywskaps p {
+#bgdmwxjbra p {
   margin: 0;
   padding: 0;
 }
 
-#lrlywskaps .gt_table {
+#bgdmwxjbra .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -369,12 +372,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#lrlywskaps .gt_caption {
+#bgdmwxjbra .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lrlywskaps .gt_title {
+#bgdmwxjbra .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -386,7 +389,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#lrlywskaps .gt_subtitle {
+#bgdmwxjbra .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -398,7 +401,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#lrlywskaps .gt_heading {
+#bgdmwxjbra .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -410,13 +413,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#lrlywskaps .gt_bottom_border {
+#bgdmwxjbra .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lrlywskaps .gt_col_headings {
+#bgdmwxjbra .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -431,7 +434,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#lrlywskaps .gt_col_heading {
+#bgdmwxjbra .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -451,7 +454,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#lrlywskaps .gt_column_spanner_outer {
+#bgdmwxjbra .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -463,15 +466,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#lrlywskaps .gt_column_spanner_outer:first-child {
+#bgdmwxjbra .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lrlywskaps .gt_column_spanner_outer:last-child {
+#bgdmwxjbra .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lrlywskaps .gt_column_spanner {
+#bgdmwxjbra .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -483,11 +486,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#lrlywskaps .gt_spanner_row {
+#bgdmwxjbra .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lrlywskaps .gt_group_heading {
+#bgdmwxjbra .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -513,7 +516,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#lrlywskaps .gt_empty_group_heading {
+#bgdmwxjbra .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -528,15 +531,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#lrlywskaps .gt_from_md > :first-child {
+#bgdmwxjbra .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lrlywskaps .gt_from_md > :last-child {
+#bgdmwxjbra .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lrlywskaps .gt_row {
+#bgdmwxjbra .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -555,7 +558,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#lrlywskaps .gt_stub {
+#bgdmwxjbra .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -568,7 +571,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#lrlywskaps .gt_stub_row_group {
+#bgdmwxjbra .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -582,15 +585,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#lrlywskaps .gt_row_group_first td {
+#bgdmwxjbra .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lrlywskaps .gt_row_group_first th {
+#bgdmwxjbra .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lrlywskaps .gt_summary_row {
+#bgdmwxjbra .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -600,16 +603,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#lrlywskaps .gt_first_summary_row {
+#bgdmwxjbra .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lrlywskaps .gt_first_summary_row.thick {
+#bgdmwxjbra .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lrlywskaps .gt_last_summary_row {
+#bgdmwxjbra .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -619,7 +622,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#lrlywskaps .gt_grand_summary_row {
+#bgdmwxjbra .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -629,7 +632,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#lrlywskaps .gt_first_grand_summary_row {
+#bgdmwxjbra .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -639,7 +642,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#lrlywskaps .gt_last_grand_summary_row_top {
+#bgdmwxjbra .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -649,11 +652,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#lrlywskaps .gt_striped {
+#bgdmwxjbra .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lrlywskaps .gt_table_body {
+#bgdmwxjbra .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -662,7 +665,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#lrlywskaps .gt_footnotes {
+#bgdmwxjbra .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -676,7 +679,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#lrlywskaps .gt_footnote {
+#bgdmwxjbra .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -685,7 +688,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#lrlywskaps .gt_sourcenotes {
+#bgdmwxjbra .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -699,7 +702,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#lrlywskaps .gt_sourcenote {
+#bgdmwxjbra .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -707,63 +710,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#lrlywskaps .gt_left {
+#bgdmwxjbra .gt_left {
   text-align: left;
 }
 
-#lrlywskaps .gt_center {
+#bgdmwxjbra .gt_center {
   text-align: center;
 }
 
-#lrlywskaps .gt_right {
+#bgdmwxjbra .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lrlywskaps .gt_font_normal {
+#bgdmwxjbra .gt_font_normal {
   font-weight: normal;
 }
 
-#lrlywskaps .gt_font_bold {
+#bgdmwxjbra .gt_font_bold {
   font-weight: bold;
 }
 
-#lrlywskaps .gt_font_italic {
+#bgdmwxjbra .gt_font_italic {
   font-style: italic;
 }
 
-#lrlywskaps .gt_super {
+#bgdmwxjbra .gt_super {
   font-size: 65%;
 }
 
-#lrlywskaps .gt_footnote_marks {
+#bgdmwxjbra .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lrlywskaps .gt_asterisk {
+#bgdmwxjbra .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lrlywskaps .gt_indent_1 {
+#bgdmwxjbra .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lrlywskaps .gt_indent_2 {
+#bgdmwxjbra .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lrlywskaps .gt_indent_3 {
+#bgdmwxjbra .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lrlywskaps .gt_indent_4 {
+#bgdmwxjbra .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lrlywskaps .gt_indent_5 {
+#bgdmwxjbra .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -786,102 +789,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="TeamSeason">Villanova 2018</td>
-<td class="gt_row gt_right" headers="AdjO">127.8</td>
+<td class="gt_row gt_left" headers="TeamSeason">Connecticut 2024</td>
+<td class="gt_row gt_right" headers="AdjO">126.7</td>
 <td class="gt_row gt_right" headers="AdjORank">1</td>
-<td class="gt_row gt_right" headers="AdjD">94.0</td>
-<td class="gt_row gt_right" headers="AdjDRank">11</td>
+<td class="gt_row gt_right" headers="AdjD">91.5</td>
+<td class="gt_row gt_right" headers="AdjDRank">4</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="TeamSeason" style="background-color: #000000; color: #FFFFFF">Connecticut 2024</td>
-<td class="gt_row gt_right" headers="AdjO" style="background-color: #000000; color: #FFFFFF">126.7</td>
-<td class="gt_row gt_right" headers="AdjORank" style="background-color: #000000; color: #FFFFFF">1</td>
-<td class="gt_row gt_right" headers="AdjD" style="background-color: #000000; color: #FFFFFF">91.5</td>
-<td class="gt_row gt_right" headers="AdjDRank" style="background-color: #000000; color: #FFFFFF">4</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="TeamSeason">Baylor 2021</td>
-<td class="gt_row gt_right" headers="AdjO">125.0</td>
-<td class="gt_row gt_right" headers="AdjORank">2</td>
-<td class="gt_row gt_right" headers="AdjD">91.1</td>
-<td class="gt_row gt_right" headers="AdjDRank">22</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="TeamSeason">Duke 2015</td>
-<td class="gt_row gt_right" headers="AdjO">124.5</td>
-<td class="gt_row gt_right" headers="AdjORank">3</td>
-<td class="gt_row gt_right" headers="AdjD">92.0</td>
-<td class="gt_row gt_right" headers="AdjDRank">11</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="TeamSeason">Virginia 2019</td>
-<td class="gt_row gt_right" headers="AdjO">123.4</td>
-<td class="gt_row gt_right" headers="AdjORank">2</td>
-<td class="gt_row gt_right" headers="AdjD">89.2</td>
-<td class="gt_row gt_right" headers="AdjDRank">5</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="TeamSeason">North Carolina 2009</td>
-<td class="gt_row gt_right" headers="AdjO">123.2</td>
-<td class="gt_row gt_right" headers="AdjORank">1</td>
-<td class="gt_row gt_right" headers="AdjD">92.1</td>
-<td class="gt_row gt_right" headers="AdjDRank">18</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="TeamSeason">Villanova 2016</td>
-<td class="gt_row gt_right" headers="AdjO">122.8</td>
-<td class="gt_row gt_right" headers="AdjORank">3</td>
-<td class="gt_row gt_right" headers="AdjD">90.8</td>
-<td class="gt_row gt_right" headers="AdjDRank">5</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="TeamSeason">Florida 2007</td>
-<td class="gt_row gt_right" headers="AdjO">122.8</td>
-<td class="gt_row gt_right" headers="AdjORank">1</td>
-<td class="gt_row gt_right" headers="AdjD">92.0</td>
-<td class="gt_row gt_right" headers="AdjDRank">13</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="TeamSeason">North Carolina 2005</td>
-<td class="gt_row gt_right" headers="AdjO">122.5</td>
-<td class="gt_row gt_right" headers="AdjORank">2</td>
-<td class="gt_row gt_right" headers="AdjD">89.7</td>
-<td class="gt_row gt_right" headers="AdjDRank">5</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="TeamSeason">Kentucky 2012</td>
-<td class="gt_row gt_right" headers="AdjO">122.2</td>
-<td class="gt_row gt_right" headers="AdjORank">2</td>
-<td class="gt_row gt_right" headers="AdjD">89.6</td>
-<td class="gt_row gt_right" headers="AdjDRank">7</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="TeamSeason">Duke 2010</td>
-<td class="gt_row gt_right" headers="AdjO">121.0</td>
-<td class="gt_row gt_right" headers="AdjORank">1</td>
-<td class="gt_row gt_right" headers="AdjD">87.7</td>
-<td class="gt_row gt_right" headers="AdjDRank">5</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="TeamSeason">Kansas 2008</td>
-<td class="gt_row gt_right" headers="AdjO">120.9</td>
-<td class="gt_row gt_right" headers="AdjORank">2</td>
-<td class="gt_row gt_right" headers="AdjD">85.7</td>
-<td class="gt_row gt_right" headers="AdjDRank">1</td>
-</tr>
-<tr class="odd">
 <td class="gt_row gt_left" headers="TeamSeason">Connecticut 2023</td>
 <td class="gt_row gt_right" headers="AdjO">120.8</td>
 <td class="gt_row gt_right" headers="AdjORank">3</td>
 <td class="gt_row gt_right" headers="AdjD">90.9</td>
 <td class="gt_row gt_right" headers="AdjDRank">7</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="TeamSeason">North Carolina 2017</td>
-<td class="gt_row gt_right" headers="AdjO">120.7</td>
-<td class="gt_row gt_right" headers="AdjORank">9</td>
-<td class="gt_row gt_right" headers="AdjD">92.5</td>
-<td class="gt_row gt_right" headers="AdjDRank">11</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="TeamSeason">Kansas 2022</td>
@@ -891,25 +810,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_right" headers="AdjDRank">17</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="TeamSeason">Florida 2006</td>
-<td class="gt_row gt_right" headers="AdjO">117.9</td>
-<td class="gt_row gt_right" headers="AdjORank">3</td>
-<td class="gt_row gt_right" headers="AdjD">89.7</td>
-<td class="gt_row gt_right" headers="AdjDRank">7</td>
+<td class="gt_row gt_left" headers="TeamSeason" style="background-color: #000000; color: #FFFFFF">Baylor 2021</td>
+<td class="gt_row gt_right" headers="AdjO" style="background-color: #000000; color: #FFFFFF">125.0</td>
+<td class="gt_row gt_right" headers="AdjORank" style="background-color: #000000; color: #FFFFFF">2</td>
+<td class="gt_row gt_right" headers="AdjD" style="background-color: #000000; color: #FFFFFF">91.1</td>
+<td class="gt_row gt_right" headers="AdjDRank" style="background-color: #000000; color: #FFFFFF">22</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="TeamSeason">Connecticut 2004</td>
-<td class="gt_row gt_right" headers="AdjO">117.8</td>
-<td class="gt_row gt_right" headers="AdjORank">9</td>
-<td class="gt_row gt_right" headers="AdjD">89.5</td>
-<td class="gt_row gt_right" headers="AdjDRank">6</td>
+<td class="gt_row gt_left" headers="TeamSeason">Virginia 2019</td>
+<td class="gt_row gt_right" headers="AdjO">123.4</td>
+<td class="gt_row gt_right" headers="AdjORank">2</td>
+<td class="gt_row gt_right" headers="AdjD">89.2</td>
+<td class="gt_row gt_right" headers="AdjDRank">5</td>
 </tr>
 <tr class="even">
+<td class="gt_row gt_left" headers="TeamSeason">Villanova 2018</td>
+<td class="gt_row gt_right" headers="AdjO">127.8</td>
+<td class="gt_row gt_right" headers="AdjORank">1</td>
+<td class="gt_row gt_right" headers="AdjD">94.0</td>
+<td class="gt_row gt_right" headers="AdjDRank">11</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="TeamSeason">North Carolina 2017</td>
+<td class="gt_row gt_right" headers="AdjO">120.7</td>
+<td class="gt_row gt_right" headers="AdjORank">9</td>
+<td class="gt_row gt_right" headers="AdjD">92.5</td>
+<td class="gt_row gt_right" headers="AdjDRank">11</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="TeamSeason">Villanova 2016</td>
+<td class="gt_row gt_right" headers="AdjO">122.8</td>
+<td class="gt_row gt_right" headers="AdjORank">3</td>
+<td class="gt_row gt_right" headers="AdjD">90.8</td>
+<td class="gt_row gt_right" headers="AdjDRank">5</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="TeamSeason">Duke 2015</td>
+<td class="gt_row gt_right" headers="AdjO">124.5</td>
+<td class="gt_row gt_right" headers="AdjORank">3</td>
+<td class="gt_row gt_right" headers="AdjD">92.0</td>
+<td class="gt_row gt_right" headers="AdjDRank">11</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="TeamSeason" style="background-color: #000000; color: #FFFFFF">Connecticut 2014</td>
+<td class="gt_row gt_right" headers="AdjO" style="background-color: #000000; color: #FFFFFF">113.6</td>
+<td class="gt_row gt_right" headers="AdjORank" style="background-color: #000000; color: #FFFFFF">39</td>
+<td class="gt_row gt_right" headers="AdjD" style="background-color: #000000; color: #FFFFFF">91.5</td>
+<td class="gt_row gt_right" headers="AdjDRank" style="background-color: #000000; color: #FFFFFF">10</td>
+</tr>
+<tr class="odd">
 <td class="gt_row gt_left" headers="TeamSeason">Louisville 2013</td>
 <td class="gt_row gt_right" headers="AdjO">117.7</td>
 <td class="gt_row gt_right" headers="AdjORank">7</td>
 <td class="gt_row gt_right" headers="AdjD">84.8</td>
 <td class="gt_row gt_right" headers="AdjDRank">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="TeamSeason">Kentucky 2012</td>
+<td class="gt_row gt_right" headers="AdjO">122.2</td>
+<td class="gt_row gt_right" headers="AdjORank">2</td>
+<td class="gt_row gt_right" headers="AdjD">89.6</td>
+<td class="gt_row gt_right" headers="AdjDRank">7</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="TeamSeason">Connecticut 2011</td>
@@ -919,11 +880,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_right" headers="AdjDRank">15</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="TeamSeason">Connecticut 2014</td>
-<td class="gt_row gt_right" headers="AdjO">113.6</td>
-<td class="gt_row gt_right" headers="AdjORank">39</td>
-<td class="gt_row gt_right" headers="AdjD">91.5</td>
-<td class="gt_row gt_right" headers="AdjDRank">10</td>
+<td class="gt_row gt_left" headers="TeamSeason">Duke 2010</td>
+<td class="gt_row gt_right" headers="AdjO">121.0</td>
+<td class="gt_row gt_right" headers="AdjORank">1</td>
+<td class="gt_row gt_right" headers="AdjD">87.7</td>
+<td class="gt_row gt_right" headers="AdjDRank">5</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="TeamSeason">North Carolina 2009</td>
+<td class="gt_row gt_right" headers="AdjO">123.2</td>
+<td class="gt_row gt_right" headers="AdjORank">1</td>
+<td class="gt_row gt_right" headers="AdjD">92.1</td>
+<td class="gt_row gt_right" headers="AdjDRank">18</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="TeamSeason">Kansas 2008</td>
+<td class="gt_row gt_right" headers="AdjO">120.9</td>
+<td class="gt_row gt_right" headers="AdjORank">2</td>
+<td class="gt_row gt_right" headers="AdjD">85.7</td>
+<td class="gt_row gt_right" headers="AdjDRank">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="TeamSeason">Florida 2007</td>
+<td class="gt_row gt_right" headers="AdjO">122.8</td>
+<td class="gt_row gt_right" headers="AdjORank">1</td>
+<td class="gt_row gt_right" headers="AdjD">92.0</td>
+<td class="gt_row gt_right" headers="AdjDRank">13</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="TeamSeason">Florida 2006</td>
+<td class="gt_row gt_right" headers="AdjO">117.9</td>
+<td class="gt_row gt_right" headers="AdjORank">3</td>
+<td class="gt_row gt_right" headers="AdjD">89.7</td>
+<td class="gt_row gt_right" headers="AdjDRank">7</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="TeamSeason">North Carolina 2005</td>
+<td class="gt_row gt_right" headers="AdjO">122.5</td>
+<td class="gt_row gt_right" headers="AdjORank">2</td>
+<td class="gt_row gt_right" headers="AdjD">89.7</td>
+<td class="gt_row gt_right" headers="AdjDRank">5</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="TeamSeason">Connecticut 2004</td>
+<td class="gt_row gt_right" headers="AdjO">117.8</td>
+<td class="gt_row gt_right" headers="AdjORank">9</td>
+<td class="gt_row gt_right" headers="AdjD">89.5</td>
+<td class="gt_row gt_right" headers="AdjDRank">6</td>
 </tr>
 </tbody><tfoot class="gt_sourcenotes">
 <tr class="odd">
@@ -941,37 +944,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>kenpomsos <span class="ot">&lt;-</span> kenpom <span class="sc">|&gt;</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(SOSAdjEM <span class="sc">&gt;</span> <span class="sc">-</span><span class="dv">50</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span>kenpomsos,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x=</span>SOSAdjEM, <span class="at">y=</span>SOSAdjEmRank),</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">color=</span><span class="st">"lightgrey"</span>) <span class="sc">+</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span>champions,</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x=</span>SOSAdjEM, <span class="at">y=</span>SOSAdjEmRank),</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">color=</span><span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">"SOS Rating"</span>, </span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"SOS Rank"</span>, </span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"Tough Competition Matters"</span>, </span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"The last 20 national champions had similar strength of schedules."</span>, </span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: KenPom | By Ben Drozd"</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>), </span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), </span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>kenpomsos <span class="ot">&lt;-</span> kenpom <span class="sc">|&gt;</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(SOSAdjEM <span class="sc">&gt;</span> <span class="sc">-</span><span class="dv">50</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>baylor <span class="ot">&lt;-</span> kenpom2021 <span class="sc">|&gt;</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(TeamSeason <span class="sc">==</span> <span class="st">"Baylor 2021"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span>kenpomsos,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x=</span>SOSAdjEM, <span class="at">y=</span>SOSAdjEmRank),</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">color=</span><span class="st">"lightgrey"</span>) <span class="sc">+</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span>champions,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x=</span>SOSAdjEM, <span class="at">y=</span>SOSAdjEmRank),</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">color=</span><span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span>baylor, </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x=</span>SOSAdjEM, <span class="at">y=</span>SOSAdjEmRank, <span class="at">label=</span>TeamSeason),</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">nudge_y =</span> <span class="dv">25</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">"SOS Rating"</span>, </span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"SOS Rank"</span>, </span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"Tough Competition Matters"</span>, </span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"The last 20 national champions had similar strength of schedules compared to every other team."</span>, </span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: KenPom | By Ben Drozd"</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>), </span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), </span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -979,63 +989,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>champions <span class="sc">|&gt;</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(TeamSeason, SOSAdjEmRank, SOSAdjEM) <span class="sc">|&gt;</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(SOSAdjEmRank) <span class="sc">|&gt;</span> </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">TeamSeason =</span> <span class="st">"Team"</span>,</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">SOSAdjEmRank =</span> <span class="st">"Rank"</span>,</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">SOSAdjEM =</span> <span class="st">"Rating"</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"National Champion's SOS"</span>,</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"18 of the past 20 tournament winners had a top 30 strength of schedule, with 2007 Florida and 2021 Baylor being outliers."</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> <span class="fu">tab_style</span>(</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">weight =</span> <span class="st">"bold"</span>, <span class="at">align =</span> <span class="st">"left"</span>),</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="st">"title"</span>)</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> <span class="fu">tab_style</span>(</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">align =</span> <span class="st">"left"</span>),</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="st">"subtitle"</span>)</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">source_note =</span> <span class="fu">md</span>(<span class="st">"**By:** Ben Drozd  |  **Source:** KenPom"</span>)</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>     <span class="at">locations =</span> <span class="fu">cells_column_labels</span>(<span class="at">columns =</span> <span class="fu">everything</span>()),</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>     <span class="at">style =</span> <span class="fu">list</span>(</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>       <span class="fu">cell_borders</span>(<span class="at">sides =</span> <span class="st">"bottom"</span>, <span class="at">weight =</span> <span class="fu">px</span>(<span class="dv">3</span>)),</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>       <span class="fu">cell_text</span>(<span class="at">weight =</span> <span class="st">"bold"</span>, <span class="at">size=</span><span class="dv">12</span>)</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>     )</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>   ) <span class="sc">|&gt;</span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_body</span>(</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>      <span class="at">rows =</span> TeamSeason <span class="sc">==</span> <span class="st">"Connecticut 2024"</span>)</span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>champions <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(TeamSeason, SOSAdjEmRank, SOSAdjEM) <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">TeamSeason =</span> <span class="st">"Team"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">SOSAdjEmRank =</span> <span class="st">"Rank"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">SOSAdjEM =</span> <span class="st">"Rating"</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"National Champion's Strength Of Schedule"</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"18 of the past 20 tournament winners had a top 30 strength of schedule, with 2007 Florida and 2021 Baylor being outliers."</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> <span class="fu">tab_style</span>(</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">weight =</span> <span class="st">"bold"</span>, <span class="at">align =</span> <span class="st">"left"</span>),</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="st">"title"</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> <span class="fu">tab_style</span>(</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">align =</span> <span class="st">"left"</span>),</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="st">"subtitle"</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">source_note =</span> <span class="fu">md</span>(<span class="st">"**By:** Ben Drozd  |  **Source:** KenPom"</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>     <span class="at">locations =</span> <span class="fu">cells_column_labels</span>(<span class="at">columns =</span> <span class="fu">everything</span>()),</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>     <span class="at">style =</span> <span class="fu">list</span>(</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>       <span class="fu">cell_borders</span>(<span class="at">sides =</span> <span class="st">"bottom"</span>, <span class="at">weight =</span> <span class="fu">px</span>(<span class="dv">3</span>)),</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>       <span class="fu">cell_text</span>(<span class="at">weight =</span> <span class="st">"bold"</span>, <span class="at">size=</span><span class="dv">12</span>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>     )</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>   ) <span class="sc">|&gt;</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_body</span>(</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>      <span class="at">rows =</span> TeamSeason <span class="sc">==</span> <span class="st">"Baylor 2021"</span>)</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_fill</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_body</span>(</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>      <span class="at">rows =</span> TeamSeason <span class="sc">==</span> <span class="st">"Florida 2007"</span>)</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
-<div id="bjefgexxls" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bjefgexxls table {
+<div id="hqydziupqq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hqydziupqq table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#bjefgexxls thead, #bjefgexxls tbody, #bjefgexxls tfoot, #bjefgexxls tr, #bjefgexxls td, #bjefgexxls th {
+#hqydziupqq thead, #hqydziupqq tbody, #hqydziupqq tfoot, #hqydziupqq tr, #hqydziupqq td, #hqydziupqq th {
   border-style: none;
 }
 
-#bjefgexxls p {
+#hqydziupqq p {
   margin: 0;
   padding: 0;
 }
 
-#bjefgexxls .gt_table {
+#hqydziupqq .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1061,12 +1078,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#bjefgexxls .gt_caption {
+#hqydziupqq .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bjefgexxls .gt_title {
+#hqydziupqq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1078,7 +1095,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#bjefgexxls .gt_subtitle {
+#hqydziupqq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1090,7 +1107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#bjefgexxls .gt_heading {
+#hqydziupqq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1102,13 +1119,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bjefgexxls .gt_bottom_border {
+#hqydziupqq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bjefgexxls .gt_col_headings {
+#hqydziupqq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1123,7 +1140,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bjefgexxls .gt_col_heading {
+#hqydziupqq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1143,7 +1160,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#bjefgexxls .gt_column_spanner_outer {
+#hqydziupqq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1155,15 +1172,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#bjefgexxls .gt_column_spanner_outer:first-child {
+#hqydziupqq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bjefgexxls .gt_column_spanner_outer:last-child {
+#hqydziupqq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bjefgexxls .gt_column_spanner {
+#hqydziupqq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1175,11 +1192,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#bjefgexxls .gt_spanner_row {
+#hqydziupqq .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#bjefgexxls .gt_group_heading {
+#hqydziupqq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1205,7 +1222,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#bjefgexxls .gt_empty_group_heading {
+#hqydziupqq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1220,15 +1237,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#bjefgexxls .gt_from_md > :first-child {
+#hqydziupqq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bjefgexxls .gt_from_md > :last-child {
+#hqydziupqq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bjefgexxls .gt_row {
+#hqydziupqq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1247,7 +1264,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#bjefgexxls .gt_stub {
+#hqydziupqq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1260,7 +1277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bjefgexxls .gt_stub_row_group {
+#hqydziupqq .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1274,15 +1291,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#bjefgexxls .gt_row_group_first td {
+#hqydziupqq .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bjefgexxls .gt_row_group_first th {
+#hqydziupqq .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#bjefgexxls .gt_summary_row {
+#hqydziupqq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1292,16 +1309,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bjefgexxls .gt_first_summary_row {
+#hqydziupqq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bjefgexxls .gt_first_summary_row.thick {
+#hqydziupqq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bjefgexxls .gt_last_summary_row {
+#hqydziupqq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1311,7 +1328,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#bjefgexxls .gt_grand_summary_row {
+#hqydziupqq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1321,7 +1338,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bjefgexxls .gt_first_grand_summary_row {
+#hqydziupqq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1331,7 +1348,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#bjefgexxls .gt_last_grand_summary_row_top {
+#hqydziupqq .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1341,11 +1358,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#bjefgexxls .gt_striped {
+#hqydziupqq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bjefgexxls .gt_table_body {
+#hqydziupqq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1354,7 +1371,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#bjefgexxls .gt_footnotes {
+#hqydziupqq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1368,7 +1385,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bjefgexxls .gt_footnote {
+#hqydziupqq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1377,7 +1394,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bjefgexxls .gt_sourcenotes {
+#hqydziupqq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1391,7 +1408,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bjefgexxls .gt_sourcenote {
+#hqydziupqq .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1399,63 +1416,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bjefgexxls .gt_left {
+#hqydziupqq .gt_left {
   text-align: left;
 }
 
-#bjefgexxls .gt_center {
+#hqydziupqq .gt_center {
   text-align: center;
 }
 
-#bjefgexxls .gt_right {
+#hqydziupqq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bjefgexxls .gt_font_normal {
+#hqydziupqq .gt_font_normal {
   font-weight: normal;
 }
 
-#bjefgexxls .gt_font_bold {
+#hqydziupqq .gt_font_bold {
   font-weight: bold;
 }
 
-#bjefgexxls .gt_font_italic {
+#hqydziupqq .gt_font_italic {
   font-style: italic;
 }
 
-#bjefgexxls .gt_super {
+#hqydziupqq .gt_super {
   font-size: 65%;
 }
 
-#bjefgexxls .gt_footnote_marks {
+#hqydziupqq .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#bjefgexxls .gt_asterisk {
+#hqydziupqq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bjefgexxls .gt_indent_1 {
+#hqydziupqq .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bjefgexxls .gt_indent_2 {
+#hqydziupqq .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bjefgexxls .gt_indent_3 {
+#hqydziupqq .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bjefgexxls .gt_indent_4 {
+#hqydziupqq .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bjefgexxls .gt_indent_5 {
+#hqydziupqq .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1463,7 +1480,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
 <tr class="header gt_heading">
-<th colspan="3" class="gt_heading gt_title gt_font_normal" style="text-align: left; color: #000000; font-weight: bold;">National Champion's SOS</th>
+<th colspan="3" class="gt_heading gt_title gt_font_normal" style="text-align: left; color: #000000; font-weight: bold;">National Champion's Strength Of Schedule</th>
 </tr>
 <tr class="odd gt_heading">
 <th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="text-align: left; color: #000000;">18 of the past 20 tournament winners had a top 30 strength of schedule, with 2007 Florida and 2021 Baylor being outliers.</th>
@@ -1476,29 +1493,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
+<td class="gt_row gt_left" headers="TeamSeason">Connecticut 2024</td>
+<td class="gt_row gt_right" headers="SOSAdjEmRank">26</td>
+<td class="gt_row gt_right" headers="SOSAdjEM">11.34</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="TeamSeason">Connecticut 2023</td>
+<td class="gt_row gt_right" headers="SOSAdjEmRank">17</td>
+<td class="gt_row gt_right" headers="SOSAdjEM">10.39</td>
+</tr>
+<tr class="odd">
 <td class="gt_row gt_left" headers="TeamSeason">Kansas 2022</td>
 <td class="gt_row gt_right" headers="SOSAdjEmRank">1</td>
 <td class="gt_row gt_right" headers="SOSAdjEM">12.60</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="TeamSeason">Connecticut 2011</td>
-<td class="gt_row gt_right" headers="SOSAdjEmRank">2</td>
-<td class="gt_row gt_right" headers="SOSAdjEM">12.78</td>
+<td class="gt_row gt_left" headers="TeamSeason" style="background-color: #000000; color: #FFFFFF">Baylor 2021</td>
+<td class="gt_row gt_right" headers="SOSAdjEmRank" style="background-color: #000000; color: #FFFFFF">54</td>
+<td class="gt_row gt_right" headers="SOSAdjEM" style="background-color: #000000; color: #FFFFFF">13.25</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="TeamSeason">North Carolina 2005</td>
-<td class="gt_row gt_right" headers="SOSAdjEmRank">2</td>
-<td class="gt_row gt_right" headers="SOSAdjEM">11.64</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="TeamSeason">Duke 2015</td>
-<td class="gt_row gt_right" headers="SOSAdjEmRank">3</td>
-<td class="gt_row gt_right" headers="SOSAdjEM">11.17</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="TeamSeason">Duke 2010</td>
-<td class="gt_row gt_right" headers="SOSAdjEmRank">4</td>
-<td class="gt_row gt_right" headers="SOSAdjEM">11.53</td>
+<td class="gt_row gt_left" headers="TeamSeason">Virginia 2019</td>
+<td class="gt_row gt_right" headers="SOSAdjEmRank">22</td>
+<td class="gt_row gt_right" headers="SOSAdjEM">11.18</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="TeamSeason">Villanova 2018</td>
@@ -1511,14 +1528,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_right" headers="SOSAdjEM">12.49</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="TeamSeason">Louisville 2013</td>
-<td class="gt_row gt_right" headers="SOSAdjEmRank">7</td>
-<td class="gt_row gt_right" headers="SOSAdjEM">10.23</td>
-</tr>
-<tr class="odd">
 <td class="gt_row gt_left" headers="TeamSeason">Villanova 2016</td>
 <td class="gt_row gt_right" headers="SOSAdjEmRank">13</td>
 <td class="gt_row gt_right" headers="SOSAdjEM">10.74</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="TeamSeason">Duke 2015</td>
+<td class="gt_row gt_right" headers="SOSAdjEmRank">3</td>
+<td class="gt_row gt_right" headers="SOSAdjEM">11.17</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="TeamSeason">Connecticut 2014</td>
@@ -1526,39 +1543,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_right" headers="SOSAdjEM">9.43</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="TeamSeason">Kansas 2008</td>
-<td class="gt_row gt_right" headers="SOSAdjEmRank">14</td>
-<td class="gt_row gt_right" headers="SOSAdjEM">9.57</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="TeamSeason">Connecticut 2023</td>
-<td class="gt_row gt_right" headers="SOSAdjEmRank">17</td>
-<td class="gt_row gt_right" headers="SOSAdjEM">10.39</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="TeamSeason">Connecticut 2004</td>
-<td class="gt_row gt_right" headers="SOSAdjEmRank">18</td>
-<td class="gt_row gt_right" headers="SOSAdjEM">8.93</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="TeamSeason">Virginia 2019</td>
-<td class="gt_row gt_right" headers="SOSAdjEmRank">22</td>
-<td class="gt_row gt_right" headers="SOSAdjEM">11.18</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="TeamSeason">North Carolina 2009</td>
-<td class="gt_row gt_right" headers="SOSAdjEmRank">24</td>
-<td class="gt_row gt_right" headers="SOSAdjEM">9.91</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="TeamSeason">Florida 2006</td>
-<td class="gt_row gt_right" headers="SOSAdjEmRank">24</td>
-<td class="gt_row gt_right" headers="SOSAdjEM">8.35</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="TeamSeason" style="background-color: #000000; color: #FFFFFF">Connecticut 2024</td>
-<td class="gt_row gt_right" headers="SOSAdjEmRank" style="background-color: #000000; color: #FFFFFF">26</td>
-<td class="gt_row gt_right" headers="SOSAdjEM" style="background-color: #000000; color: #FFFFFF">11.34</td>
+<td class="gt_row gt_left" headers="TeamSeason">Louisville 2013</td>
+<td class="gt_row gt_right" headers="SOSAdjEmRank">7</td>
+<td class="gt_row gt_right" headers="SOSAdjEM">10.23</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="TeamSeason">Kentucky 2012</td>
@@ -1566,14 +1553,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_right" headers="SOSAdjEM">7.99</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="TeamSeason">Florida 2007</td>
-<td class="gt_row gt_right" headers="SOSAdjEmRank">33</td>
-<td class="gt_row gt_right" headers="SOSAdjEM">8.73</td>
+<td class="gt_row gt_left" headers="TeamSeason">Connecticut 2011</td>
+<td class="gt_row gt_right" headers="SOSAdjEmRank">2</td>
+<td class="gt_row gt_right" headers="SOSAdjEM">12.78</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="TeamSeason">Baylor 2021</td>
-<td class="gt_row gt_right" headers="SOSAdjEmRank">54</td>
-<td class="gt_row gt_right" headers="SOSAdjEM">13.25</td>
+<td class="gt_row gt_left" headers="TeamSeason">Duke 2010</td>
+<td class="gt_row gt_right" headers="SOSAdjEmRank">4</td>
+<td class="gt_row gt_right" headers="SOSAdjEM">11.53</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="TeamSeason">North Carolina 2009</td>
+<td class="gt_row gt_right" headers="SOSAdjEmRank">24</td>
+<td class="gt_row gt_right" headers="SOSAdjEM">9.91</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="TeamSeason">Kansas 2008</td>
+<td class="gt_row gt_right" headers="SOSAdjEmRank">14</td>
+<td class="gt_row gt_right" headers="SOSAdjEM">9.57</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="TeamSeason" style="background-color: #000000; color: #FFFFFF">Florida 2007</td>
+<td class="gt_row gt_right" headers="SOSAdjEmRank" style="background-color: #000000; color: #FFFFFF">33</td>
+<td class="gt_row gt_right" headers="SOSAdjEM" style="background-color: #000000; color: #FFFFFF">8.73</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="TeamSeason">Florida 2006</td>
+<td class="gt_row gt_right" headers="SOSAdjEmRank">24</td>
+<td class="gt_row gt_right" headers="SOSAdjEM">8.35</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="TeamSeason">North Carolina 2005</td>
+<td class="gt_row gt_right" headers="SOSAdjEmRank">2</td>
+<td class="gt_row gt_right" headers="SOSAdjEM">11.64</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="TeamSeason">Connecticut 2004</td>
+<td class="gt_row gt_right" headers="SOSAdjEmRank">18</td>
+<td class="gt_row gt_right" headers="SOSAdjEM">8.93</td>
 </tr>
 </tbody><tfoot class="gt_sourcenotes">
 <tr class="odd">
@@ -1591,39 +1608,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>titleranks <span class="ot">&lt;-</span> champions <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Rk) <span class="sc">|&gt;</span> </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">titles =</span> <span class="fu">n</span>())</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>titleranks, <span class="fu">aes</span>(<span class="at">x=</span>Rk, <span class="at">weight=</span> titles)) <span class="sc">+</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">15</span>, <span class="at">y=</span><span class="dv">2</span>, <span class="at">label=</span><span class="st">"UConn 2014"</span>)) <span class="sc">+</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">10</span>, <span class="at">y=</span><span class="dv">2</span>, <span class="at">label=</span><span class="st">"UConn 2011"</span>)) <span class="sc">+</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">16</span>), <span class="at">limits=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">16</span>)) <span class="sc">+</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">11</span>, <span class="dv">12</span>)) <span class="sc">+</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">"KenPom Rankings"</span>, </span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"Championships"</span>, </span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"Top Teams Dominate March"</span>, </span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"Teams ranked in the top three of KenPom of have won 18 of the last 20</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="st">championships, with UConn being the only exeception in 2011 and 2014."</span>, </span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: KenPom | By Ben Drozd"</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>), </span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), </span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>titleranks <span class="ot">&lt;-</span> champions <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Rk) <span class="sc">|&gt;</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">titles =</span> <span class="fu">n</span>())</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>titleranks, <span class="fu">aes</span>(<span class="at">x=</span>Rk, <span class="at">weight=</span> titles)) <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">15</span>, <span class="at">y=</span><span class="fl">1.5</span>, <span class="at">label=</span><span class="st">"UConn 2014"</span>)) <span class="sc">+</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">10</span>, <span class="at">y=</span><span class="fl">1.5</span>, <span class="at">label=</span><span class="st">"UConn 2011"</span>)) <span class="sc">+</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">16</span>), <span class="at">limits=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">16</span>)) <span class="sc">+</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">11</span>, <span class="dv">12</span>)) <span class="sc">+</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">"KenPom Rankings"</span>, </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"Championships"</span>, </span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"Top Teams Dominate March"</span>,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"UConn in 2011 and 2014 are the only teams to win the NCAA Tournament not ranked in the top three."</span>, </span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: KenPom | By Ben Drozd"</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>), </span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), </span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
