@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ben Drozd">
-<meta name="dcterms.date" content="2024-04-14">
+<meta name="dcterms.date" content="2025-02-14">
 
 <title>Ben Drozd’s Sports Data Site - Comparing College Basketball National Champions</title>
 <style>
@@ -166,7 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">April 14, 2024</p>
+        <p class="date">February 14, 2025</p>
       </div>
     </div>
     
@@ -185,7 +185,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>nhgjhgjhgjhg</p>
+<p>March is the most exciting time of year for many basketball fans for one reason and one reason only: March Madness.</p>
+<p>The crazy upsets, the Cinderella runs and the win-or-go-home situation every game make it a must-watch. However, all those things can make it tricky trying to pick a national champion for your bracket.</p>
+<p>To make it easier, let’s take a look at some trends among past national champions according to KenPom data. KenPom for over 20 years has produced adjusted efficiencies for every Division 1 men’s basketball team.</p>
+<p>We’ll first look at how important being good on both ends of the floor is. Here’s a look at the offensive and defensive efficiencies of every college basketball team from the past 20 years and where the last 20 national champions stand in comparison.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -278,6 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>All the national champions find themselves fairly close together in the bottom right, meaning they were good on offense and defense. Taking a closer look at the numbers, 18 of past the 20 title winners had a top 20 offensive and defensive efficiency, with 2014 UConn and 2021 Baylor being outliers. 2014 UConn is the true outlier here, however, as Baylor’s defensive efficiency rank was 22 while UConn’s offensive efficiency rank was 39.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -286,14 +290,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">TeamSeason =</span> <span class="st">"Team"</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">AdjO =</span> <span class="st">"Offensive Efficiency"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">AdjO =</span> <span class="st">"Offense"</span>,</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">AdjORank =</span> <span class="st">"Rank"</span>,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">AdjD =</span> <span class="st">"Defensive Efficiency"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">AdjD =</span> <span class="st">"Defense"</span>,</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">AdjDRank =</span> <span class="st">"Rank"</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"National Champion's Efficiency"</span>,</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"18 of past the 20 tournament winners had a top 20 offense and defense, with 2014 UConn and 2021 Baylor being outliers."</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Comparing National Champion's Efficiency"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"18 of the past 20 tournament winners had a top 20 offense and defense, with 2014 UConn and 2021 Baylor being outliers."</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> <span class="fu">tab_style</span>(</span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">weight =</span> <span class="st">"bold"</span>, <span class="at">align =</span> <span class="st">"left"</span>),</span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_title</span>(<span class="st">"title"</span>)</span>
@@ -330,23 +334,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 <div class="cell-output-display">
 <div>
-<div id="bgdmwxjbra" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bgdmwxjbra table {
+<div id="adradrjmjm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#adradrjmjm table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#bgdmwxjbra thead, #bgdmwxjbra tbody, #bgdmwxjbra tfoot, #bgdmwxjbra tr, #bgdmwxjbra td, #bgdmwxjbra th {
+#adradrjmjm thead, #adradrjmjm tbody, #adradrjmjm tfoot, #adradrjmjm tr, #adradrjmjm td, #adradrjmjm th {
   border-style: none;
 }
 
-#bgdmwxjbra p {
+#adradrjmjm p {
   margin: 0;
   padding: 0;
 }
 
-#bgdmwxjbra .gt_table {
+#adradrjmjm .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -372,12 +376,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#bgdmwxjbra .gt_caption {
+#adradrjmjm .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bgdmwxjbra .gt_title {
+#adradrjmjm .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -389,7 +393,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#bgdmwxjbra .gt_subtitle {
+#adradrjmjm .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -401,7 +405,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#bgdmwxjbra .gt_heading {
+#adradrjmjm .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -413,13 +417,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bgdmwxjbra .gt_bottom_border {
+#adradrjmjm .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bgdmwxjbra .gt_col_headings {
+#adradrjmjm .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -434,7 +438,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bgdmwxjbra .gt_col_heading {
+#adradrjmjm .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -454,7 +458,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#bgdmwxjbra .gt_column_spanner_outer {
+#adradrjmjm .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -466,15 +470,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#bgdmwxjbra .gt_column_spanner_outer:first-child {
+#adradrjmjm .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bgdmwxjbra .gt_column_spanner_outer:last-child {
+#adradrjmjm .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bgdmwxjbra .gt_column_spanner {
+#adradrjmjm .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -486,11 +490,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#bgdmwxjbra .gt_spanner_row {
+#adradrjmjm .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#bgdmwxjbra .gt_group_heading {
+#adradrjmjm .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -516,7 +520,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#bgdmwxjbra .gt_empty_group_heading {
+#adradrjmjm .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -531,15 +535,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#bgdmwxjbra .gt_from_md > :first-child {
+#adradrjmjm .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bgdmwxjbra .gt_from_md > :last-child {
+#adradrjmjm .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bgdmwxjbra .gt_row {
+#adradrjmjm .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -558,7 +562,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#bgdmwxjbra .gt_stub {
+#adradrjmjm .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -571,7 +575,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bgdmwxjbra .gt_stub_row_group {
+#adradrjmjm .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -585,15 +589,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#bgdmwxjbra .gt_row_group_first td {
+#adradrjmjm .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bgdmwxjbra .gt_row_group_first th {
+#adradrjmjm .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#bgdmwxjbra .gt_summary_row {
+#adradrjmjm .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -603,16 +607,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bgdmwxjbra .gt_first_summary_row {
+#adradrjmjm .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bgdmwxjbra .gt_first_summary_row.thick {
+#adradrjmjm .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bgdmwxjbra .gt_last_summary_row {
+#adradrjmjm .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -622,7 +626,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#bgdmwxjbra .gt_grand_summary_row {
+#adradrjmjm .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -632,7 +636,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bgdmwxjbra .gt_first_grand_summary_row {
+#adradrjmjm .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -642,7 +646,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#bgdmwxjbra .gt_last_grand_summary_row_top {
+#adradrjmjm .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -652,11 +656,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#bgdmwxjbra .gt_striped {
+#adradrjmjm .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bgdmwxjbra .gt_table_body {
+#adradrjmjm .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -665,7 +669,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#bgdmwxjbra .gt_footnotes {
+#adradrjmjm .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -679,7 +683,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bgdmwxjbra .gt_footnote {
+#adradrjmjm .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -688,7 +692,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bgdmwxjbra .gt_sourcenotes {
+#adradrjmjm .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -702,7 +706,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bgdmwxjbra .gt_sourcenote {
+#adradrjmjm .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -710,63 +714,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bgdmwxjbra .gt_left {
+#adradrjmjm .gt_left {
   text-align: left;
 }
 
-#bgdmwxjbra .gt_center {
+#adradrjmjm .gt_center {
   text-align: center;
 }
 
-#bgdmwxjbra .gt_right {
+#adradrjmjm .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bgdmwxjbra .gt_font_normal {
+#adradrjmjm .gt_font_normal {
   font-weight: normal;
 }
 
-#bgdmwxjbra .gt_font_bold {
+#adradrjmjm .gt_font_bold {
   font-weight: bold;
 }
 
-#bgdmwxjbra .gt_font_italic {
+#adradrjmjm .gt_font_italic {
   font-style: italic;
 }
 
-#bgdmwxjbra .gt_super {
+#adradrjmjm .gt_super {
   font-size: 65%;
 }
 
-#bgdmwxjbra .gt_footnote_marks {
+#adradrjmjm .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#bgdmwxjbra .gt_asterisk {
+#adradrjmjm .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bgdmwxjbra .gt_indent_1 {
+#adradrjmjm .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bgdmwxjbra .gt_indent_2 {
+#adradrjmjm .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bgdmwxjbra .gt_indent_3 {
+#adradrjmjm .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bgdmwxjbra .gt_indent_4 {
+#adradrjmjm .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bgdmwxjbra .gt_indent_5 {
+#adradrjmjm .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -774,16 +778,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
 <tr class="header gt_heading">
-<th colspan="5" class="gt_heading gt_title gt_font_normal" style="text-align: left; color: #000000; font-weight: bold;">National Champion's Efficiency</th>
+<th colspan="5" class="gt_heading gt_title gt_font_normal" style="text-align: left; color: #000000; font-weight: bold;">Comparing National Champion's Efficiency</th>
 </tr>
 <tr class="odd gt_heading">
-<th colspan="5" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="text-align: left; color: #000000;">18 of past the 20 tournament winners had a top 20 offense and defense, with 2014 UConn and 2021 Baylor being outliers.</th>
+<th colspan="5" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="text-align: left; color: #000000;">18 of the past 20 tournament winners had a top 20 offense and defense, with 2014 UConn and 2021 Baylor being outliers.</th>
 </tr>
 <tr class="header gt_col_headings">
 <th id="Team" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #000000; font-size: 12; font-weight: bold" scope="col">Team</th>
-<th id="Offensive Efficiency" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #000000; font-size: 12; font-weight: bold" scope="col">Offensive Efficiency</th>
+<th id="Offense" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #000000; font-size: 12; font-weight: bold" scope="col">Offense</th>
 <th id="Rank" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #000000; font-size: 12; font-weight: bold" scope="col">Rank</th>
-<th id="Defensive Efficiency" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #000000; font-size: 12; font-weight: bold" scope="col">Defensive Efficiency</th>
+<th id="Defense" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #000000; font-size: 12; font-weight: bold" scope="col">Defense</th>
 <th id="Rank" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #000000; font-size: 12; font-weight: bold" scope="col">Rank</th>
 </tr>
 </thead>
@@ -940,7 +944,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>;fjsljlfj</p>
+<p>This shouldn’t be too surprising, as basketball is a game of offense and defense. A team that isn’t as good on defense finds themselves struggling to stop the top offenses, while teams that aren’t as strong on offense can’t keep up with the elite offenses. But how important is it to do that against tough competition during the regular season?</p>
+<p>Using the same KenPom data, we’ll look at every team’s strength of schedule rating and where it ranked during that year for every team over the past 20 years.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -986,6 +991,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>Once again, all the national champions find themselves close together, with one real outlier, 2021 Baylor. They are on a line with all of the other teams during the 2021 season that had much higher strength of schedule ratings. Of the past twenty national champions, Baylor had the worst strength of schedule ranking, but the highest strength of schedule rating. The only other national champion outside of the top 30 was Florida in 2007.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -998,7 +1004,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">SOSAdjEM =</span> <span class="st">"Rating"</span></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"National Champion's Strength Of Schedule"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Comparing National Champion's Strength Of Schedule"</span>,</span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"18 of the past 20 tournament winners had a top 30 strength of schedule, with 2007 Florida and 2021 Baylor being outliers."</span></span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> <span class="fu">tab_style</span>(</span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">cell_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">weight =</span> <span class="st">"bold"</span>, <span class="at">align =</span> <span class="st">"left"</span>),</span>
@@ -1036,23 +1042,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 <div class="cell-output-display">
 <div>
-<div id="hqydziupqq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hqydziupqq table {
+<div id="dazmfmetpp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dazmfmetpp table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hqydziupqq thead, #hqydziupqq tbody, #hqydziupqq tfoot, #hqydziupqq tr, #hqydziupqq td, #hqydziupqq th {
+#dazmfmetpp thead, #dazmfmetpp tbody, #dazmfmetpp tfoot, #dazmfmetpp tr, #dazmfmetpp td, #dazmfmetpp th {
   border-style: none;
 }
 
-#hqydziupqq p {
+#dazmfmetpp p {
   margin: 0;
   padding: 0;
 }
 
-#hqydziupqq .gt_table {
+#dazmfmetpp .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1078,12 +1084,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#hqydziupqq .gt_caption {
+#dazmfmetpp .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hqydziupqq .gt_title {
+#dazmfmetpp .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1095,7 +1101,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#hqydziupqq .gt_subtitle {
+#dazmfmetpp .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1107,7 +1113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#hqydziupqq .gt_heading {
+#dazmfmetpp .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1119,13 +1125,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#hqydziupqq .gt_bottom_border {
+#dazmfmetpp .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hqydziupqq .gt_col_headings {
+#dazmfmetpp .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1140,7 +1146,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#hqydziupqq .gt_col_heading {
+#dazmfmetpp .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1160,7 +1166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#hqydziupqq .gt_column_spanner_outer {
+#dazmfmetpp .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1172,15 +1178,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#hqydziupqq .gt_column_spanner_outer:first-child {
+#dazmfmetpp .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hqydziupqq .gt_column_spanner_outer:last-child {
+#dazmfmetpp .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hqydziupqq .gt_column_spanner {
+#dazmfmetpp .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1192,11 +1198,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#hqydziupqq .gt_spanner_row {
+#dazmfmetpp .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hqydziupqq .gt_group_heading {
+#dazmfmetpp .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1222,7 +1228,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#hqydziupqq .gt_empty_group_heading {
+#dazmfmetpp .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1237,15 +1243,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#hqydziupqq .gt_from_md > :first-child {
+#dazmfmetpp .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hqydziupqq .gt_from_md > :last-child {
+#dazmfmetpp .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hqydziupqq .gt_row {
+#dazmfmetpp .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1264,7 +1270,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#hqydziupqq .gt_stub {
+#dazmfmetpp .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1277,7 +1283,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#hqydziupqq .gt_stub_row_group {
+#dazmfmetpp .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1291,15 +1297,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#hqydziupqq .gt_row_group_first td {
+#dazmfmetpp .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hqydziupqq .gt_row_group_first th {
+#dazmfmetpp .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hqydziupqq .gt_summary_row {
+#dazmfmetpp .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1309,16 +1315,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#hqydziupqq .gt_first_summary_row {
+#dazmfmetpp .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hqydziupqq .gt_first_summary_row.thick {
+#dazmfmetpp .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hqydziupqq .gt_last_summary_row {
+#dazmfmetpp .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1328,7 +1334,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#hqydziupqq .gt_grand_summary_row {
+#dazmfmetpp .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1338,7 +1344,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#hqydziupqq .gt_first_grand_summary_row {
+#dazmfmetpp .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1348,7 +1354,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#hqydziupqq .gt_last_grand_summary_row_top {
+#dazmfmetpp .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1358,11 +1364,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#hqydziupqq .gt_striped {
+#dazmfmetpp .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hqydziupqq .gt_table_body {
+#dazmfmetpp .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1371,7 +1377,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#hqydziupqq .gt_footnotes {
+#dazmfmetpp .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1385,7 +1391,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#hqydziupqq .gt_footnote {
+#dazmfmetpp .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1394,7 +1400,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#hqydziupqq .gt_sourcenotes {
+#dazmfmetpp .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1408,7 +1414,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#hqydziupqq .gt_sourcenote {
+#dazmfmetpp .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1416,63 +1422,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#hqydziupqq .gt_left {
+#dazmfmetpp .gt_left {
   text-align: left;
 }
 
-#hqydziupqq .gt_center {
+#dazmfmetpp .gt_center {
   text-align: center;
 }
 
-#hqydziupqq .gt_right {
+#dazmfmetpp .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hqydziupqq .gt_font_normal {
+#dazmfmetpp .gt_font_normal {
   font-weight: normal;
 }
 
-#hqydziupqq .gt_font_bold {
+#dazmfmetpp .gt_font_bold {
   font-weight: bold;
 }
 
-#hqydziupqq .gt_font_italic {
+#dazmfmetpp .gt_font_italic {
   font-style: italic;
 }
 
-#hqydziupqq .gt_super {
+#dazmfmetpp .gt_super {
   font-size: 65%;
 }
 
-#hqydziupqq .gt_footnote_marks {
+#dazmfmetpp .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hqydziupqq .gt_asterisk {
+#dazmfmetpp .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hqydziupqq .gt_indent_1 {
+#dazmfmetpp .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hqydziupqq .gt_indent_2 {
+#dazmfmetpp .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hqydziupqq .gt_indent_3 {
+#dazmfmetpp .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hqydziupqq .gt_indent_4 {
+#dazmfmetpp .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hqydziupqq .gt_indent_5 {
+#dazmfmetpp .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1480,7 +1486,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
 <tr class="header gt_heading">
-<th colspan="3" class="gt_heading gt_title gt_font_normal" style="text-align: left; color: #000000; font-weight: bold;">National Champion's Strength Of Schedule</th>
+<th colspan="3" class="gt_heading gt_title gt_font_normal" style="text-align: left; color: #000000; font-weight: bold;">Comparing National Champion's Strength Of Schedule</th>
 </tr>
 <tr class="odd gt_heading">
 <th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="text-align: left; color: #000000;">18 of the past 20 tournament winners had a top 30 strength of schedule, with 2007 Florida and 2021 Baylor being outliers.</th>
@@ -1604,7 +1610,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>jfljslajfl</p>
+<p>At the end of the day, how accurate is KenPom’s rankings of the top teams?</p>
+<p>Since 2004, only two teams have won that were ranked outside of the top three. Those two teams: 2011 UConn and 2014 UConn. 12 of the last 20 national were the number one ranked team. Here’s the breakdown of the alst 20 title winners and their KenPom ranking:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
